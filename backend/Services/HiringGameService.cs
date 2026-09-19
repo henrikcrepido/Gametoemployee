@@ -53,28 +53,32 @@ public sealed class HiringGameService
             "Refresh the product overview after edits",
             "Ensure the React UI shows updated PIM values after a save so reviewers can verify the fix.",
             "React",
-            30),
+            30,
+            "Medium"),
         new(
             "issue-api-validation",
             "ticket-102",
             "Enforce SKU validation in the API",
             "Reject invalid SKUs in the .NET backend before they reach the integration layer.",
             ".NET",
-            35),
+            35,
+            "Hard"),
         new(
             "issue-review-proof",
             "ticket-103",
             "Add verifiable test coverage for maintenance fixes",
             "Back the candidate's changes with tests so the simulated deployment review can pass.",
             "Testing",
-            20),
+            20,
+            "Medium"),
         new(
             "issue-release-readiness",
             "ticket-103",
             "Document release readiness for deployment review",
             "Summarize what was fixed and which blocker tickets are safe to release.",
             "Delivery",
-            15)
+            15,
+            "Easy")
     ];
 
     public GameSnapshot GetSnapshot()
@@ -92,6 +96,7 @@ public sealed class HiringGameService
     {
         var resolvedIds = new HashSet<string>(resolvedIssueIds ?? Array.Empty<string>(), StringComparer.OrdinalIgnoreCase);
         var resolvedIssues = issues.Where(issue => resolvedIds.Contains(issue.Id)).ToArray();
+        var openIssues = issues.Where(issue => !resolvedIds.Contains(issue.Id)).ToArray();
         var totalPoints = issues.Sum(issue => issue.Points);
         var earnedPoints = resolvedIssues.Sum(issue => issue.Points);
         var completionPercent = totalPoints == 0 ? 0 : (int)Math.Round(earnedPoints * 100d / totalPoints, MidpointRounding.AwayFromZero);
@@ -131,6 +136,8 @@ public sealed class HiringGameService
 
         return new(
             resolvedIssues.Select(issue => issue.Id).OrderBy(id => id, StringComparer.Ordinal).ToArray(),
+            openIssues,
+            resolvedIssues,
             completionPercent,
             GetStage(completionPercent),
             skillRatings,

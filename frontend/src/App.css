@@ -46,6 +46,7 @@
 .stack-list,
 .ticket-list,
 .issue-list,
+.bug-list,
 .skill-list,
 .achievement-list {
   list-style: none;
@@ -56,6 +57,7 @@
 }
 
 .ticket-list > li,
+.bug-card,
 .skill-list li,
 .achievement,
 .stack-list li {
@@ -119,9 +121,19 @@
 }
 
 .issue-list small,
+.bug-card small,
 .skill-list small,
 .ticket-list small {
   color: #475569;
+}
+
+.bug-card.resolved {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.empty-state {
+  text-align: center;
 }
 
 .progress-bar {

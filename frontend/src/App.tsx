@@ -23,6 +23,7 @@ type PimIssue = {
   description: string
   skillArea: string
   points: number
+  complexity: string
 }
 
 type SkillRating = {
@@ -44,6 +45,8 @@ type GameStage = {
 
 type GameEvaluation = {
   resolvedIssueIds: string[]
+  openIssues: PimIssue[]
+  resolvedIssues: PimIssue[]
   completionPercent: number
   currentStage: GameStage
   skillRatings: SkillRating[]
@@ -213,7 +216,7 @@ function App() {
                         <span>
                           <strong>{issue.title}</strong>
                           <small>
-                            {issue.skillArea} · {issue.points} pts
+                            {issue.skillArea} · {issue.points} pts · {issue.complexity}
                           </small>
                           <p>{issue.description}</p>
                         </span>
@@ -223,6 +226,50 @@ function App() {
                 </ul>
               </li>
             ))}
+          </ul>
+        </article>
+      </section>
+
+      <section className="grid">
+        <article className="panel">
+          <h2>Bugs to resolve from the start</h2>
+          <ul className="bug-list">
+            {evaluation.openIssues.map((issue) => (
+              <li key={issue.id} className="bug-card">
+                <div className="ticket-header">
+                  <strong>{issue.title}</strong>
+                  <span>{issue.complexity}</span>
+                </div>
+                <small>
+                  {issue.skillArea} · {issue.points} pts
+                </small>
+                <p>{issue.description}</p>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="panel">
+          <h2>Resolved bugs</h2>
+          <ul className="bug-list">
+            {evaluation.resolvedIssues.length === 0 ? (
+              <li className="bug-card empty-state">
+                <p>No bugs resolved yet.</p>
+              </li>
+            ) : (
+              evaluation.resolvedIssues.map((issue) => (
+                <li key={issue.id} className="bug-card resolved">
+                  <div className="ticket-header">
+                    <strong>{issue.title}</strong>
+                    <span>{issue.complexity}</span>
+                  </div>
+                  <small>
+                    {issue.skillArea} · {issue.points} pts
+                  </small>
+                  <p>{issue.description}</p>
+                </li>
+              ))
+            )}
           </ul>
         </article>
       </section>

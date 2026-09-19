@@ -16,7 +16,8 @@ public sealed record PimIssue(
     string Title,
     string Description,
     string SkillArea,
-    int Points);
+    int Points,
+    string Complexity);
 
 public sealed record SkillRating(string Skill, int Score, string Level);
 
@@ -26,6 +27,8 @@ public sealed record GameStage(string Title, string Description);
 
 public sealed record GameEvaluation(
     IReadOnlyList<string> ResolvedIssueIds,
+    IReadOnlyList<PimIssue> OpenIssues,
+    IReadOnlyList<PimIssue> ResolvedIssues,
     int CompletionPercent,
     GameStage CurrentStage,
     IReadOnlyList<SkillRating> SkillRatings,
