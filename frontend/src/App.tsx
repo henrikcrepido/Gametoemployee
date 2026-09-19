@@ -159,6 +159,9 @@ function App() {
           <p className="eyebrow">{game.productName}</p>
           <h1>PIM maintenance challenge</h1>
           <p className="lede">{game.scenario}</p>
+          <a className="quick-link" href="#achievements">
+            View achievements
+          </a>
         </div>
         <div className="stage-card">
           <span>Current stage</span>
@@ -187,7 +190,16 @@ function App() {
         </article>
 
         <article className="panel">
-          <h2>Maintenance support inbox</h2>
+          <div className="action-heading">
+            <div>
+              <p className="section-kicker">Your action</p>
+              <h2>Choose issues to resolve</h2>
+            </div>
+            <span className="action-badge">Updates automatically</span>
+          </div>
+          <p className="action-help">
+            Select the maintenance issues you would fix. Your progress, resolved bugs, and skill rating update immediately.
+          </p>
           <ul className="ticket-list">
             {game.inbox.map((ticket) => (
               <li key={ticket.id}>
@@ -293,7 +305,7 @@ function App() {
           </ul>
         </article>
 
-        <article className="panel">
+        <article className="panel" id="achievements">
           <h2>Achievements</h2>
           <ul className="achievement-list">
             {evaluation.achievements.map((achievement) => (

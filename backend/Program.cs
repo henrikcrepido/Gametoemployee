@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 builder.Services.AddSingleton<HiringGameService>();
+builder.Services.AddSingleton<PimCatalogService>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -30,5 +31,26 @@ app.MapGet("/api/game", (HiringGameService gameService) => gameService.GetSnapsh
 app.MapPost("/api/game/evaluate", (EvaluationRequest request, HiringGameService gameService) =>
     Results.Ok(gameService.Evaluate(request.ResolvedIssueIds)))
     .WithName("EvaluateGameProgress");
+
+app.MapGet("/api/products", (PimCatalogService catalog) => catalog.GetProducts())
+    .WithName("GetProducts");
+
+app.MapGet("/api/products/{id}", (string id, PimCatalogService catalog) =>
+    catalog.GetProduct(id) is { } product ? Results.Ok(product) : Results.NotFound())
+    .WithName("GetProduct");
+
+app.MapPut("/api/products/{id}", (string id, UpdatePimProductRequest request, PimCatalogService catalog) =>
+{
+    var result = catalog.UpdateProduct(id, request);
+    if (result.Product is null && result.Error is null)
+    {
+        return Results.NotFound();
+    }
+
+    return result.Product is null
+        ? Results.BadRequest(new { message = result.Error })
+        : Results.Ok(result.Product);
+})
+    .WithName("UpdateProduct");
 
 app.Run();

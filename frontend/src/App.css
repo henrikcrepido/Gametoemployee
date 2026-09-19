@@ -29,6 +29,24 @@
   max-width: 60rem;
 }
 
+.quick-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0f766e;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.quick-link:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 4px;
+}
+
+#achievements {
+  scroll-margin-top: 24px;
+}
+
 .stage-card {
   display: grid;
   gap: 8px;
@@ -74,6 +92,41 @@
   align-items: center;
 }
 
+.action-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.section-kicker {
+  margin: 0 0 4px;
+  color: #0f766e;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.action-heading h2 {
+  margin-top: 0;
+}
+
+.action-badge {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ccfbf1;
+  color: #115e59;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.action-help {
+  margin-top: 0;
+  color: #334155;
+}
+
 .ticket-header span {
   font-size: 0.85rem;
   font-weight: 700;
@@ -100,6 +153,7 @@
   grid-template-columns: auto 1fr;
   gap: 12px;
   align-items: start;
+  cursor: pointer;
 }
 
 .issue-list li {
@@ -111,6 +165,9 @@
 
 .issue-list input {
   margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: #0f766e;
 }
 
 .issue-list strong,
@@ -173,5 +230,15 @@
   .hero {
     grid-template-columns: 2fr 1fr;
     align-items: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .action-heading {
+    display: grid;
+  }
+
+  .action-badge {
+    justify-self: start;
   }
 }
