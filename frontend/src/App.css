@@ -1,0 +1,177 @@
+.page {
+  display: grid;
+  gap: 24px;
+  padding: 32px 20px 48px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d7dce5;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+  display: grid;
+  gap: 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+.lede {
+  max-width: 60rem;
+}
+
+.stage-card {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ede9fe, #eef2ff);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.stack-list,
+.ticket-list,
+.issue-list,
+.bug-list,
+.skill-list,
+.achievement-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 16px;
+}
+
+.ticket-list > li,
+.bug-card,
+.skill-list li,
+.achievement,
+.stack-list li {
+  padding: 16px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.ticket-header span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4338ca;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tag-row span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 0.8rem;
+}
+
+.issue-list label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.issue-list li {
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #dbeafe;
+}
+
+.issue-list input {
+  margin-top: 3px;
+}
+
+.issue-list strong,
+.achievement strong,
+.stack-list strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.issue-list small,
+.bug-card small,
+.skill-list small,
+.ticket-list small {
+  color: #475569;
+}
+
+.bug-card.resolved {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.empty-state {
+  text-align: center;
+}
+
+.progress-bar {
+  overflow: hidden;
+  height: 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  margin: 10px 0 6px;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+}
+
+.achievement.unlocked {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.summary {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+.error-banner {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
