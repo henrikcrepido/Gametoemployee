@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XmpdI+w+lhU=",
+  "success": true,
+  "projectFilePath": "/home/runner/work/Gametoemployee/Gametoemployee/backend/backend.csproj",
+  "expectedPackageFiles": [
+    "/home/runner/.nuget/packages/microsoft.aspnetcore.openapi/10.0.11/microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "/home/runner/.nuget/packages/microsoft.openapi/2.7.5/microsoft.openapi.2.7.5.nupkg.sha512"
+  ],
+  "logs": []
+}
