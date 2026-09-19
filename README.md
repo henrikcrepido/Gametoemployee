@@ -12,6 +12,16 @@ The application simulates work on a PIM (Product Information Management) system.
 - skill ratings that show how far they progress in the game
 - achievements unlocked by completing meaningful milestones
 
+## Screenshots
+
+### Initial dashboard
+
+![Initial PIM Quest dashboard](docs/pim-dashboard.png)
+
+### Progress after resolving some bugs
+
+![PIM Quest dashboard with resolved bugs](docs/pim-dashboard-progress.png)
+
 ## Run locally
 
 ### Backend
