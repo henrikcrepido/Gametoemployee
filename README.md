@@ -22,6 +22,10 @@ The application simulates work on a PIM (Product Information Management) system.
 
 ![PIM Quest dashboard with resolved bugs](docs/pim-dashboard-progress.png)
 
+### Bug list focus
+
+![PIM Quest bug lists](docs/pim-bug-lists.png)
+
 ## Run locally
 
 ### Backend
